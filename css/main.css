@@ -39,12 +39,8 @@ h1 {
 }
 .contact label,
 a {
-	transition: color .2s ease;
-	color: hsl(200, 100%, 50%);
-	text-decoration: underline;
-	
-
-	background: black;
+	transition: background-color .2s ease;
+	background: hsl(0, 0%, 10%);
 	font-weight: bold;
 	color: white;
 	padding: .2em .5em;
@@ -52,7 +48,7 @@ a {
 }
 .contact label:hover,
 a:hover {
-	color: hsl(200, 100%, 30%);
+	background-color: hsl(0, 0%, 30%);
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -110,13 +106,17 @@ body {
 .contact {
 	font-size: 1.5em;
 	margin-top: -1em;
+	display: inline-block;
 }
 .contact {
-	margin-left: -1em;
+	margin-left: .3em;
+	overflow: hidden;
 	}
 .contact > * {
-	margin-left: 1em;
+	margin-top: .3em;
+	margin-left: .3em;
 	display: inline-block;
+	float: left;
 }
 
 .portfolio p {
