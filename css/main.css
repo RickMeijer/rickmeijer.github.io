@@ -109,6 +109,7 @@ body {
 	}
 .contact > * {
 	margin-left: 1em;
+	display: inline-block;
 }
 
 .portfolio p {
