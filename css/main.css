@@ -9,7 +9,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
-    text-align: center;
+    text-align: left;
 }
 
 h1,
@@ -54,11 +54,11 @@ a:hover {
 }
 
 body {
-    padding: 0;
+    padding: 0.6em;
     margin: 0
 }
-main > *:not(:first-child) {
-	margin-top: 3em;
+main > * {
+	margin-bottom: 3em;
 }
 #vcard {
 	opacity: 0;
@@ -111,7 +111,7 @@ main > *:not(:first-child) {
 	display: inline-block;
 }
 .contact {
-	margin-left: .3em;
+	margin-left: -.3em;
 	overflow: hidden;
 	}
 .contact > * {
@@ -126,4 +126,14 @@ main > *:not(:first-child) {
 }
 .portfolio a {
 	display: inline-block;
+}
+
+@media screen and (min-width: 600px) {
+	body {
+		text-align: center;
+	}
+	.contact > * {
+		float: none;
+		}
+
 }
