@@ -42,6 +42,13 @@ a {
 	transition: color .2s ease;
 	color: hsl(200, 100%, 50%);
 	text-decoration: underline;
+	
+
+	background: black;
+	font-weight: bold;
+	color: white;
+	padding: .2em .5em;
+	text-decoration: none;
 }
 .contact label:hover,
 a:hover {
@@ -117,7 +124,7 @@ body {
 	margin-bottom: 0;
 }
 .portfolio a {
-	display: block;
+	display: inline-block;
 }
 .portfolio > a {
 	margin-top: 5em;
