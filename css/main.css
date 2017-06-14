@@ -1,0 +1,123 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5;
+    color: hsl(0, 0%, 10%);
+    background-color: hsl(0, 0%, 98%);
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    /*font-family: "Libre Baskerville", Georgia, Times New Roman, serif;*/
+    font-family: Georgia, Times New Roman, serif;
+    font-weight: 700;
+    line-height: 1.3
+}
+
+h1 {
+    font-size: 60vmin;
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+    color: hsl(0, 0%, 10%);
+}
+.contact label,
+a {
+	transition: color .2s ease;
+	color: hsl(200, 100%, 50%);
+	text-decoration: underline;
+}
+.contact label:hover,
+a:hover {
+	color: hsl(200, 100%, 30%);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+body {
+    padding: 0;
+    margin: 0
+}
+
+#vcard {
+	opacity: 0;
+	position: absolute;
+}
+
+.overlay {
+	transform: translateY(-100%);
+	transition: .2s ease transform;
+	display: flex;
+
+	position: absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background: rgba(255, 255, 255, .8);
+}
+
+#vcard:checked + main .overlay { 
+	transform: translateY(0);
+	cursor: pointer;
+}
+.overlay img {
+	width: auto;
+	height: auto;
+	min-height: 80%;
+	min-width: 80%;
+	min-height: 80vmin;
+	min-height: 80vmin;
+	
+	margin: auto;
+}
+
+#vcard:checked + main  .overlay:before {
+	content: '×';
+	position: absolute;
+	top: 0;
+	right: 0;
+	opacity: 1;
+	z-index: 2;
+	font-size: 4em;
+	padding: .5em;
+	line-height: 1;
+	font-weight: bold;
+}
+.contact {
+	font-size: 1.5em;
+	margin-top: -1em;
+}
+.contact {
+	margin-left: -1em;
+	}
+.contact > * {
+	margin-left: 1em;
+}
+
+.portfolio p {
+	margin-top: 5em;
+	margin-bottom: 0;
+}
+.portfolio a {
+	display: block;
+}
+.portfolio > a {
+	margin-top: 5em;
+}
