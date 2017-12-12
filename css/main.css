@@ -11,7 +11,7 @@ body {
     font-smoothing: antialiased;
     text-align: left;
 }
-.h1 {
+.header {
     font-family: Georgia, Times New Roman, serif;
     font-weight: 700;
     line-height: 1.3;
@@ -21,14 +21,15 @@ body {
     line-height: 1;
     color: hsl(0, 0%, 10%);
     display: block;
+    cursor: default;
 }
-.h1::after {
+.header::after {
 	content: '.';
 	color: #fc0;
 	transition: color .2s ease;
 }
 
-.contact label,
+.vcard label,
 a {
 	transition: background-color .2s ease, transform .2s ease;
 	font-weight: bold;
@@ -36,11 +37,15 @@ a {
 	padding: .2em .5em;
 	text-decoration: none;
 }
+.vcard label,
 a:visited {
 	color: hsl(280, 100%, 50%);
 }
+.vcard label,
 a { position: relative;  }
 
+.vcard label::after,
+.vcard label::before,
 a::after,
 a::before {
 	content: '';
@@ -54,11 +59,14 @@ a::before {
 	transform: scaleY(1);
 	transform-origin: top;
 }
+.vcard label::after,
 a::after {
 	z-index: -2;
 	background: hsl(0, 0%, 10%);
 }
+.vcard label::before,
 a::before { background: #fc0; transform: scaleY(0); }
+.vcard label:hover::before,
 a:hover::before { transform: scaleY(1); }
 /*
 a:hover::before {
@@ -67,7 +75,7 @@ a:hover::before {
 }*/
 
 
-.contact label:hover,
+.vcard label:hover,
 a:focus,
 a:hover {
 	text-decoration: none;
@@ -78,9 +86,8 @@ body {
     padding: 0.6em;
     margin: 0
 }
-main > * {
-	margin-bottom: 3em;
-}
+main > * { margin-bottom: 3em; }
+
 #vcard {
 	opacity: 0;
 	position: absolute;
@@ -97,7 +104,7 @@ main > * {
 	z-index: 999;
 	background: rgba(255, 255, 255, .8);
 }
-#vcard:checked + main .overlay { 
+#vcard:checked + main .overlay {
 	transform: translateY(0);
 	transition: .2s ease transform;
 	cursor: pointer;
@@ -109,7 +116,7 @@ main > * {
 	min-width: 80%;
 	min-height: 80vmin;
 	min-width: 80vmin;
-	
+
 	margin: auto;
 }
 #vcard:checked + main img {
@@ -130,26 +137,28 @@ main > * {
 }
 .contact {
 	font-size: 1.5em;
-	margin-top: -1em;
+	margin: -1em 0 1em -.3em;
 	display: inline-block;
-}
-.contact {
-	margin-left: -.3em;
 	overflow: hidden;
-	}
+}
 .contact > * {
 	margin-top: .3em;
 	margin-left: .3em;
 	display: inline-block;
 	float: left;
 }
+.vcard {
+	font-size: 1.5em;
+	}
 
-.portfolio p {
-	margin: 0;
-}
 .portfolio a {
 	display: inline-block;
+	margin-top: .3em;
 }
+
+.skills li { display: inline-block; }
+.skills li:first-child::before,
+.skills li:after { content: '❤'; margin: 0 .5rem; font-size: .5em; line-height: 2; vertical-align: middle; }
 
 @media screen and (min-width: 600px) {
 	body {
@@ -157,5 +166,8 @@ main > * {
 	}
 	.contact > * {
 		float: none;
-		}
+	}
+	.vcard {
+		font-size: 1rem;
+	}
 }
