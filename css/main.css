@@ -1,3 +1,11 @@
+@keyframes bounce {
+	20% { transform: scale(1) translateY(0); }
+	40% { transform: scale(1.2, .8) translateY(10px); }
+	50% { transform: scale(.8, 1.2) translateY(0); }
+	80% { transform: scale(1, 1) translateY(-100px); }
+	99%, 100% { transform: scale(1.2, .8) translateY(-150px); }
+}
+
 body {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1em;
@@ -10,6 +18,16 @@ body {
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     text-align: left;
+    padding: 0.6em;
+    margin: 0
+}
+
+.intro {
+	font-size: 1.5em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5em;
+	max-width: 80%;
 }
 .header {
     font-family: Georgia, Times New Roman, serif;
@@ -24,28 +42,89 @@ body {
     cursor: default;
 }
 .header::after {
-	content: '.';
-	color: #fc0;
-	transition: color .2s ease;
+	content: '';
+	border-radius: 100%;
+	width: .18em;
+	height: .18em;
+	background-color: #fc0;
+	transition: background-color .2s ease;
+	display: inline-block;
+	transform-origin: center;
+}
+.header:hover::after {
+	background-color: hsl(280, 100%, 50%);
+	animation: bounce .5s both alternate linear infinite;
 }
 
-.vcard label,
+.vcardContainer.is-open {
+	opacity: 1;
+	transform: translate(50%, -50%) scale(1);
+}
+.vcardContainer.was-open {
+	transition: opacity 0.2s ease, transform .2s ease;
+}
+
+.vcardContainer {
+	opacity: 0;
+	background: #000;
+	text-align: center;
+	padding: 1em;
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%) scale(0);
+	z-index: 999;
+}
+.vcardContainer .btn {
+	position: absolute;
+	top: -1em;
+	right: -1em;
+	width: 1.7em;
+	height: 1.7em;
+	line-height: 1;
+	margin: 0;
+}
+.vcardContainer img {
+	margin-bottom: 1em;
+}
+.vcardContainer a {
+	display: block;
+	margin: auto;
+}
+.vcardContainer a::after,
+.vcardContainer a::before {
+	background: transparent;
+}
+
+
+
+
+nav {
+	margin-top: -.5em;
+}
+button.btn {
+	background: transparent;
+	border: none;
+	line-height: inherit;
+}
+.btn,
 a {
-	transition: background-color .2s ease, transform .2s ease;
 	font-weight: bold;
 	color: white;
+	font-size: 1.5em;
 	padding: .2em .5em;
+	margin-top: .5em;
+	display: inline-block;
 	text-decoration: none;
+	position: relative;
+	transition: color .5s ease;
 }
-.vcard label,
+
 a:visited {
 	color: hsl(280, 100%, 50%);
 }
-.vcard label,
-a { position: relative;  }
-
-.vcard label::after,
-.vcard label::before,
+.btn::after,
+.btn::before,
 a::after,
 a::before {
 	content: '';
@@ -59,115 +138,49 @@ a::before {
 	transform: scaleY(1);
 	transform-origin: top;
 }
-.vcard label::after,
+.btn::after,
 a::after {
 	z-index: -2;
 	background: hsl(0, 0%, 10%);
 }
-.vcard label::before,
+.btn::before,
 a::before { background: #fc0; transform: scaleY(0); }
-.vcard label:hover::before,
-a:hover::before { transform: scaleY(1); }
-/*
-a:hover::before {
-	animation: bounce .2s ease both;
-	transform-origin: center;
-}*/
 
+.btn:hover::before,
+.btn:focus::before,
 
-.vcard label:hover,
+a:hover::before,
+a:focus::before { transform: scaleY(1); }
+
+.btn:focus,
+.btn:hover,
 a:focus,
 a:hover {
 	text-decoration: none;
 	cursor: pointer;
 	outline: none;
 }
-body {
-    padding: 0.6em;
-    margin: 0
-}
-main > * { margin-bottom: 3em; }
 
-#vcard {
-	opacity: 0;
-	position: absolute;
-}
-.overlay {
-	transform: translateY(-100%);
-	display: flex;
+.skills ul { list-style: none; margin: 0; padding: 0; }
+.skills li { display: inline-block; white-space: nowrap; }
+.skills li::before { content: '❤'; margin: 0 .5rem; font-size: .5em; line-height: 2; vertical-align: middle; }
 
-	position: absolute;
-	left:0;
-	right:0;
-	top:0;
-	bottom:0;
-	z-index: 999;
-	background: rgba(255, 255, 255, .8);
-}
-#vcard:checked + main .overlay {
-	transform: translateY(0);
-	transition: .2s ease transform;
-	cursor: pointer;
-}
-.overlay img {
-	width: auto;
-	height: auto;
-	min-height: 80%;
-	min-width: 80%;
-	min-height: 80vmin;
-	min-width: 80vmin;
-
-	margin: auto;
-}
-#vcard:checked + main img {
-	background-image: url('../img/vcard.svg');
-	background-size: cover;
-}
-#vcard:checked + main  .overlay::before {
-	content: '×';
-	position: absolute;
-	top: 0;
-	right: 0;
-	opacity: 1;
-	z-index: 2;
-	font-size: 4em;
-	padding: .5em;
-	line-height: 1;
-	font-weight: bold;
-}
-.contact {
-	font-size: 1.5em;
-	margin: -1em 0 1em -.3em;
-	display: inline-block;
-	overflow: hidden;
-}
-.contact > * {
-	margin-top: .3em;
-	margin-left: .3em;
-	display: inline-block;
-	float: left;
-}
-.vcard {
-	font-size: 1.5em;
-	}
-
-.portfolio a {
-	display: inline-block;
-	margin-top: .3em;
-}
-
-.skills li { display: inline-block; }
-.skills li:first-child::before,
-.skills li:after { content: '❤'; margin: 0 .5rem; font-size: .5em; line-height: 2; vertical-align: middle; }
 
 @media screen and (min-width: 600px) {
 	body {
 		text-align: center;
 	}
-	.contact > * {
-		float: none;
+	.intro {
+		width: 60%;
+		max-width: 42em;
+		margin-top: -1em;
 	}
-	.vcard {
-		font-size: 1rem;
+	.portfolio,
+	.skills {
+		max-width: 80%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
+
+main > * { margin-bottom: 3rem; }

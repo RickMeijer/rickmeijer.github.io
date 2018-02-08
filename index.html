@@ -4,55 +4,73 @@
 		<title>Rick Meijer - Freelance webdeveloper and problemsolver</title>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="description" content="">
+		<meta name="description" content="I'm a pragmatic, creative developer with a focus on the front-end and user experience design. Experienced in agency work and product development.">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 
 	<body>
-		<input type="checkbox" id="vcard" />
 		<main>
-			<section>
-				<h1 class="header">Hi</h1>
-				<nav class="contact">
+			<h1 class="header">Hi</h1>
+			<p class="intro">I'm a pragmatic, creative developer with a focus on the front-end and user experience design. Experienced in agency work and product development.</p>
+			<section class="contact">
+				<p>You can reach me through here:</p>
+				<nav>
 					<a title="Email." href="mailto:info@rickmeijer.net">Email.</a>
 					<a title="Linkedin." href="https://www.linkedin.com/in/rick-meijer/">Linkedin.</a>
 					<a title="Bitbucket." href="https://bitbucket.org/rickmeijer/">Bitbucket.</a>
 					<a title="Github." href="https://www.github.com/rickmeijer/">Github.</a>
-				</nav>
-
-				<nav class="vcard">
-					vCard:
-					<a title="vCard" href="vCard.vcf">download</a>
-					<label for="vcard">scan</label>
+					<button class="btn" onclick="toggleVcard()">vCard</button>
 				</nav>
 			</section>
-				<label for="vcard" class="overlay">
-					<img data-src="img/vcard.svg" />
-				</label>
 			<section class="portfolio">
-				<p>I helped to make (amongst other things)</p>
+				<p>I helped to make:</p>
 				<nav>
 					<a href="https://play.google.com/store/apps/details?id=nl.aegon.carkroodle">CarKroodle (app)</a>
 					<a href="https://play.google.com/store/apps/details?id=nl.aegon.fitkroodle">FitKroodle (app)</a>
 					<a href="https://www.hogeveluwe.nl" target="_blank">Hoge Veluwe</a>
 					<a href="https://www.icrc.org/" target="_blank">ICRC.org</a>
 					<a href="https://www.kwik-fit.nl" target="_blank">Kwik Fit</a>
+					<a href="https://www.tudelft.nl" target="_blank">TU Delft</a>
 				</nav>
 			</section>
 			<section class="skills">
-				<p>I've made things using</p>
+				<p>I've worked with:</p>
 				<ul>
-					<li>Ionic/Cordova</li>
-					<li>Angular 1 &amp; 2</li>
+					<li>VueJS</li>
+					<li>Angular</li>
 					<li>NodeJS</li>
 					<li>jQuery</li>
-					<li>Ruby on Rails</li>
+					<li>VanillaJS</li>
 					<li>Sass</li>
+					<li>Less</li>
+					<li>Ionic/Cordova</li>
+					<li>Ruby on Rails</li>
 					<li>PHP</li>
+					<li>Python</li>
+					<li>GoLang</li>
 				</ul>
 			</section>
 		</main>
+		<div class="vcardContainer">
+			<button class="btn" onclick="toggleVcard()">&times;</button>
+			<img src="img/vcard.svg" alt="scannable contact information" />
+			<a href="vCard.vcf">download vcard</a>
+		</div>
+		<script type="text/javascript">
+			function toggleVcard() {
+				document.querySelectorAll('.vcardContainer').forEach(function(elem)  {
+					if(!elem.classList.contains('was-open')) elem.classList.add('was-open');
+
+					if(!elem.classList.contains('is-open')) {
+						elem.classList.add('is-open');
+					} else {
+						elem.classList.remove('is-open');
+					}
+
+				});
+			}
+		</script>
 	</body>
 </html>
