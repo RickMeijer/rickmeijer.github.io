@@ -54,10 +54,13 @@ body {
 	transition: background-color .2s ease;
 	display: inline-block;
 	transform-origin: center;
+	animation: bounce .5s both alternate linear;
+	animation-iteration-count: 6;
 }
 .header:hover::after {
 	background-color: hsl(280, 100%, 50%);
-	animation: bounce .5s both alternate linear infinite;
+	animation-play-state: running;
+	animation-iteration-count: infinite;
 }
 
 .vcardContainer.is-open {
